@@ -1,87 +1,700 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Site de Scan de Mangá</title>
+
     <style>
+
         body {
+
             font-family: Arial, sans-serif;
+
             margin: 0;
+
             padding: 0;
+
             background-color: #f5f5f5;
+
         }
+
         header {
+
             background-color: #333;
+
             color: white;
+
             padding: 15px 0;
+
             text-align: center;
+
         }
+
         nav {
+
             background-color: #444;
+
             color: white;
+
             padding: 10px;
+
             text-align: center;
+
         }
+
         nav a {
+
             color: white;
+
             text-decoration: none;
+
             margin: 0 10px;
+
         }
+
         main {
+
             padding: 20px;
+
         }
+
         .manga {
+
             display: inline-block;
+
             margin: 10px;
+
             width: 200px;
+
             background-color: white;
+
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
         }
+
         .manga img {
+
             max-width: 100%;
+
         }
+
         .manga h3 {
+
             text-align: center;
+
             padding: 10px;
+
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
+
+        .detalhes-manga, .pagina-manga {
+
+            display: none;
+
             position: fixed;
+
+            top: 0;
+
+            left: 0;
+
             width: 100%;
-            bottom: 0;
+
+            height: 100%;
+
+            background-color: white;
+
+            z-index: 1000;
+
+            overflow-y: scroll;
+
         }
+
+        .detalhes-manga .conteudo, .pagina-manga .conteudo {
+
+            padding: 20px;
+
+        }
+
+        .detalhes-manga .fechar, .pagina-manga .fechar {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 10px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            margin-bottom: 10px;
+
+        }
+
+        footer {
+
+            background-color: #333;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 15px 0;
+
+            position: fixed;
+
+            width: 100%;
+
+            bottom: 0;
+
+        }
+
     </style>
+
+    <script>
+
+        function abrirDetalhes(id) {
+
+            var detalhesManga = document.querySelectorAll('.detalhes-manga');
+
+            detalhesManga.forEach(function(detalhe) {
+
+                detalhe.style.display = 'none';
+
+            });
+
+            document.getElementById(id).style.display = 'block';
+
+        }
+
+
+
+        function fecharDetalhes(id) {
+
+            document.getElementById(id).style.display = 'none';
+
+        }
+
+
+
+        function abrirManga(id) {
+
+            var paginasManga = document.querySelectorAll('.pagina-manga');
+
+            paginasManga.forEach(function(pagina) {
+
+                pagina.style.display = 'none';
+
+            });
+
+            document.getElementById(id).style.display = 'block';
+
+        }
+
+
+
+        function fecharManga(id) {
+
+            document.getElementById(id).style.display = 'none';
+
+        }
+
+    </script>
+
 </head>
+
 <body>
+
     <header>
+
         <h1>Bem-vindo ao Site de Scan de Mangá</h1>
+
     </header>
+
     <nav>
+
         <a href="#">Home</a>
+
         <a href="#">Mangás</a>
+
         <a href="#">Contato</a>
+
     </nav>
+
     <main>
-        <div class="manga">
-            <a href="https://agate456.github.io/novel.github.com/" target="_blank">
-                <img src="https://assets.onecompiler.app/43a76nmc3/43a778pkw/optimized-13132-18_12_.webp" alt="Título do Mangá 1">
-                <h3>O Melhor Engenheiro Do Mundo</h3>
-            </a>
+
+        <div class="manga" onclick="abrirDetalhes('detalhesManga1')">
+
+            <img src="https://assets.onecompiler.app/43a76nmc3/43a778pkw/optimized-13132-18_12_.webp" alt="O Melhor Engenheiro Do Mundo">
+
+            <h3>O Melhor Engenheiro Do Mundo</h3>
+
         </div>
-        <div class="manga">
-            <a href="caminho/para/pagina2.html" target="_blank">
-                <img src="caminho/para/imagem2.jpg" alt="Título do Mangá 2">
-                <h3>Título do Mangá 2</h3>
-            </a>
+
+        <div class="manga" onclick="abrirDetalhes('detalhesManga2')">
+
+            <img src="caminho/para/imagem2.jpg" alt="Título do Mangá 2">
+
+            <h3>Título do Mangá 2</h3>
+
         </div>
+
         <!-- Adicione mais mangás conforme necessário -->
-    </main>
-    <footer>
-        <p>&copy; 2025 Site de Scan de Mangá. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+
+
+
+        <div id="detalhesManga1" class="detalhes-manga">
+
+            <div class="fechar" onclick="fecharDetalhes('detalhesManga1')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>O Melhor Engenheiro Do Mundo</h2>
+
+                <img src="https://assets.onecompiler.app/43a76nmc3/43a778pkw/optimized-13132-18_12_.webp" alt="O Melhor Engenheiro Do Mundo">
+
+                <p><strong>Avaliação:</strong> 4.5/5</p>
+
+                <p><strong>Cadastrado:</strong> 17/01/2025</p>
+
+                <p><strong>Tipo:</strong> Mangá</p>
+
+                <p><strong>Status:</strong> Em andamento</p> 
+
+                <p><strong>Sinopse:</strong>Quando o estudante de engenharia civil Suho Kim adormece lendo um romance de fantasia, ele acorda como um personagem do livro. Suho está agora no corpo de Lloyd Frontera, um nobre preguiçoso que adora beber e cuja família está endividada. Usando seu conhecimento de engenharia, Suho projeta invenções para evitar o futuro terrível que o espera. Com a ajuda de um hamster gigante, um cavaleiro e a magia do mundo, Suho conseguirá livrar sua nova família das dívidas e construir um futuro melhor?</p>
+
+                <button onclick="abrirManga('manga1')">Capítulo 1</button>
+
+                <button onclick="abrirManga('manga2')">Capítulo 2</button>
+
+                <button onclick="abrirManga('manga3')">Capítulo 3</button>
+
+                <button onclick="abrirManga('manga4')">Capítulo 4</button>
+
+                <button onclick="abrirManga('manga5')">Capítulo 5</button>
+
+                <button onclick="abrirManga('manga6')">Capítulo 6</button>
+
+            </div>
+
+        </div>
+
+        <div id="detalhesManga2" class="detalhes-manga">
+
+            <div class="fechar" onclick="fecharDetalhes('detalhesManga2')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>Título do Mangá 2</h2>
+
+                <img src="caminho/para/imagem2.jpg" alt="Título do Mangá 2">
+
+                <p><strong>Avaliação:</strong> 4.0/5</p>
+
+                <p><strong>Cadastrado:</strong> 02/02/2025</p>
+
+                <p><strong>Tipo:</strong> Mangá</p>
+
+                <p><strong>Status:</strong> Completo</p>
+
+                <p><strong>Sinopse:</strong> Este mangá conta a história emocionante de...</p>
+
+                <button onclick="abrirManga('manga2.2')">Capítulo 1</button>
+
+                <button onclick="abrirManga('manga3.2')">Capítulo 2</button>
+
+                <button onclick="abrirManga('manga4.2')">Capítulo 3</button>
+
+                <button onclick="abrirManga('manga5.2')">Capítulo 4</button>
+
+                <button onclick="abrirManga('manga6.2')">Capítulo 5</button>
+
+                <button onclick="abrirManga('manga7.2')">Capítulo 6</button>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="manga1" class="pagina-manga">
+
+            <div class="fechar" onclick="fecharManga('manga1')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>O Melhor Engenheiro Do Mundo</h2>
+
+                <!-- Adicione as páginas do mangá aqui -->
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/001.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/002.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/003.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/004.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/005.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/006.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/007.jpg"></p>
+
+                
+
+                <!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Site de Scan de Mangá</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            background-color: #f5f5f5;
+
+        }
+
+        header {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+        }
+
+        nav {
+
+            background-color: #444;
+
+            color: white;
+
+            padding: 10px;
+
+            text-align: center;
+
+        }
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin: 0 10px;
+
+        }
+
+        main {
+
+            padding: 20px;
+
+        }
+
+        .manga {
+
+            display: inline-block;
+
+            margin: 10px;
+
+            width: 200px;
+
+            background-color: white;
+
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .manga img {
+
+            max-width: 100%;
+
+        }
+
+        .manga h3 {
+
+            text-align: center;
+
+            padding: 10px;
+
+        }
+
+        .detalhes-manga, .pagina-manga {
+
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: white;
+
+            z-index: 1000;
+
+            overflow-y: scroll;
+
+        }
+
+        .detalhes-manga .conteudo, .pagina-manga .conteudo {
+
+            padding: 20px;
+
+        }
+
+        .detalhes-manga .fechar, .pagina-manga .fechar {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 10px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            margin-bottom: 10px;
+
+        }
+
+        footer {
+
+            background-color: #333;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 15px 0;
+
+            position: fixed;
+
+            width: 100%;
+
+            bottom: 0;
+
+        }
+
+    </style>
+
+    <script>
+
+        function abrirDetalhes(id) {
+
+            var detalhesManga = document.querySelectorAll('.detalhes-manga');
+
+            detalhesManga.forEach(function(detalhe) {
+
+                detalhe.style.display = 'none';
+
+            });
+
+            document.getElementById(id).style.display = 'block';
+
+        }
+
+
+
+        function fecharDetalhes(id) {
+
+            document.getElementById(id).style.display = 'none';
+
+        }
+
+
+
+        function abrirManga(id) {
+
+            var paginasManga = document.querySelectorAll('.pagina-manga');
+
+            paginasManga.forEach(function(pagina) {
+
+                pagina.style.display = 'none';
+
+            });
+
+            document.getElementById(id).style.display = 'block';
+
+        }
+
+
+
+        function fecharManga(id) {
+
+            document.getElementById(id).style.display = 'none';
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Bem-vindo ao Site de Scan de Mangá</h1>
+
+    </header>
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <a href="#">Mangás</a>
+
+        <a href="#">Contato</a>
+
+    </nav>
+
+    <main>
+
+        <div class="manga" onclick="abrirDetalhes('detalhesManga1')">
+
+            <img src="https://assets.onecompiler.app/43a76nmc3/43a778pkw/optimized-13132-18_12_.webp" alt="O Melhor Engenheiro Do Mundo">
+
+            <h3>O Melhor Engenheiro Do Mundo</h3>
+
+        </div>
+
+        <div class="manga" onclick="abrirDetalhes('detalhesManga2')">
+
+            <img src="caminho/para/imagem2.jpg" alt="Título do Mangá 2">
+
+            <h3>Título do Mangá 2</h3>
+
+        </div>
+
+        <!-- Adicione mais mangás conforme necessário -->
+
+
+
+        <div id="detalhesManga1" class="detalhes-manga">
+
+            <div class="fechar" onclick="fecharDetalhes('detalhesManga1')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>O Melhor Engenheiro Do Mundo</h2>
+
+                <img src="https://assets.onecompiler.app/43a76nmc3/43a778pkw/optimized-13132-18_12_.webp" alt="O Melhor Engenheiro Do Mundo">
+
+                <p><strong>Avaliação:</strong> 4.5/5</p>
+
+                <p><strong>Cadastrado:</strong> 17/01/2025</p>
+
+                <p><strong>Tipo:</strong> Mangá</p>
+
+                <p><strong>Status:</strong> Em andamento</p> 
+
+                <p><strong>Sinopse:</strong>Quando o estudante de engenharia civil Suho Kim adormece lendo um romance de fantasia, ele acorda como um personagem do livro. Suho está agora no corpo de Lloyd Frontera, um nobre preguiçoso que adora beber e cuja família está endividada. Usando seu conhecimento de engenharia, Suho projeta invenções para evitar o futuro terrível que o espera. Com a ajuda de um hamster gigante, um cavaleiro e a magia do mundo, Suho conseguirá livrar sua nova família das dívidas e construir um futuro melhor?</p>
+
+                <button onclick="abrirManga('manga1')">Capítulo 1</button>
+
+                <button onclick="abrirManga('manga2')">Capítulo 2</button>
+
+                <button onclick="abrirManga('manga3')">Capítulo 3</button>
+
+                <button onclick="abrirManga('manga4')">Capítulo 4</button>
+
+                <button onclick="abrirManga('manga5')">Capítulo 5</button>
+
+                <button onclick="abrirManga('manga6')">Capítulo 6</button>
+
+            </div>
+
+        </div>
+
+        <div id="detalhesManga2" class="detalhes-manga">
+
+            <div class="fechar" onclick="fecharDetalhes('detalhesManga2')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>Título do Mangá 2</h2>
+
+                <img src="caminho/para/imagem2.jpg" alt="Título do Mangá 2">
+
+                <p><strong>Avaliação:</strong> 4.0/5</p>
+
+                <p><strong>Cadastrado:</strong> 02/02/2025</p>
+
+                <p><strong>Tipo:</strong> Mangá</p>
+
+                <p><strong>Status:</strong> Completo</p>
+
+                <p><strong>Sinopse:</strong> Este mangá conta a história emocionante de...</p>
+
+                <button onclick="abrirManga('manga2')">Capítulo 1</button>
+
+                <button onclick="abrirManga('manga3')">Capítulo 2</button>
+
+                <button onclick="abrirManga('manga4')">Capítulo 3</button>
+
+                <button onclick="abrirManga('manga5')">Capítulo 4</button>
+
+                <button onclick="abrirManga('manga6')">Capítulo 5</button>
+
+                <button onclick="abrirManga('manga7')">Capítulo 6</button>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="manga2" class="pagina-manga">
+
+            <div class="fechar" onclick="fecharManga('manga1')">Fechar</div>
+
+            <div class="conteudo">
+
+                <h2>O Melhor Engenheiro Do Mundo</h2>
+
+                <!-- Adicione as páginas do mangá aqui -->
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/001.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/002.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/003.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/004.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/005.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/006.jpg"></p>
+
+                <p><img src="https://assets.onecompiler.app/43a76nmc3/43a77n8z7/007.jpg"></p>
+
+
+
